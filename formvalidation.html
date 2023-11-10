@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<title>Form Validation</title>
+	</head>
+		<style>
+			table{
+			background-color:red;
+			}
+			th,tr,td{
+			text-align:left;
+			}
+			h2{
+			text-align:center;
+			background-color:black;
+			}
+		</style
+	<body>
+		<h1>Form Validation</h1>
+		<form name="form"action=""methods="POST"onsubmit="return validate()">
+		<table>
+			<tr>
+				<th>Name</th>
+				<td><input type="text" name="fname"></td>
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td><input type="text" name="Email"></td>
+			</tr>
+			<tr>
+				<th>Mobile number</th>
+				<td><input type="text" name="mobno"></td>
+			</tr>
+			<tr>
+				<th>Username</th>
+				<td><input type="text" name="user"></td>
+			</tr>
+			<tr>
+				<th>password</th>
+				<td><input type="text" name="pass"></td>
+			</tr>
+			<tr> class="center">
+				<th colspan="2"><center><input type="submit" value="submit"></center</th>
+			</tr>
+			</table>
+			</form>
+				<script>
+					function validate(){
+					var fname=document.form.fname.value;
+					var Email=document.form.Email.value;
+					var mobno=document.form.mobno.value;
+					var user=document.form.user.value;
+					var pass=document.form.pass.value;
+					var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+					var ren = /[0-9!@#$%^&*]/
+					var qw = /^(?=.*\d)(?=.*[a-z])(?=.*[@])(?=.*[gmail])(?=.*[.])(?=.*[com])/
+					if("fname=="){
+					alert("Enter your first name");
+					document.form.fname.focus();
+					return false;
+				}
+				else if(ren.test(fname)){
+					alert("Enter your valid name");
+					document.form.fname.focus();
+					return false;
+				}
+					if("Email=="){
+					alert("Enter your Email");
+					document.form.Email.focus();
+					return false;
+				}
+				else if(qw.test(Email)){
+					alert("Enter your valid Email id");
+					document.form.Email.focus();
+					return false;
+				}
+					if("mobno=="){
+					alert("Enter your Mobile number");
+					return false;
+				}
+				else if(isNan(mobno)){
+					alert("Enter your valid mobile number");
+					return false;
+				}
+					else if(isNan(mobno)){
+					alert("Enter your valid mobile number with 10 digits");
+					return false;
+				}
+					if("user=="){
+					alert("Enter your username");
+					document.form.user.focus();
+					return false;
+				}
+				if(pass ==""|| pass.lenth<8||!re.test(pass)){
+					alert("Enter minimum 8 digit password"+'/n'+"Atleast one lowercase&uppercase&digit&special character must be included");
+					document.form.pass.focus();
+					return false;
+				}
+				}
+				</script>
+			</body>
+			</html>							
